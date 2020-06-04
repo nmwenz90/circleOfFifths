@@ -24,6 +24,14 @@ route.patch("/updateOctave", playerController.updateOctave, playerController.sel
     res.status(201).json(res.locals.currentOctave)
 })
 
+route.patch("/pushSequence", playerController.pushSequence, playerController.displaySequence, (req, res) => {
+    res.status(201).json(res.locals.displaySequence)
+})
+
+route.patch("/popSequence", playerController.popSequence, playerController.displaySequence, (req, res) => {
+    res.status(201).json(res.locals.displaySequence)
+})
+
 // route.put("/update", (req, res) => {
 //     res.sendStatus(200)
 // }

@@ -4,6 +4,7 @@ import ColorWheel from './ColorWheel.js'
 import Transport from './Transport.js'
 
 import * as Tone from 'tone'
+import Axios from 'axios'
 // import { Transport } from 'tone'
 
 // import StartAudioContext from 'startaudiocontext'
@@ -60,6 +61,12 @@ class App extends Component {
         }, this.state.sequence, '4n')
     }
 
+    //function to get current note from database
+    // getNote() {
+    //     Axios.get('/player')
+    // }
+    //fucntion to get current octave from database
+    //function to patch sequence array in database
 
     octaveup() {
         console.log('octave is up')

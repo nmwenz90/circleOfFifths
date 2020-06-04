@@ -26,6 +26,17 @@ playerController.selectOctave = (req, res, next) => {
         .catch(err => next(err))
 }
 
+playerController.displaySequence = (req, res, next) => {
+    console.log('displaying sequence array in', models.Player)
+    models.Player.findOne({}).exec()
+        .then(result => {
+            console.log(result)
+            res.locals.displaySequence = result.sequence
+            return next()
+        })
+        .catch(err => next(err))
+}
+
 playerController.updateNote = (req, res, next) => {
     console.log('updating note')
     console.log('request body: ', req.body.currentNote)
@@ -45,6 +56,36 @@ playerController.updateOctave = (req, res, next) => {
     models.Player.updateOne({ currentOctave: currentOctave })
         .then(result => {
             console.log('heres the result', result)
+            return next()
+        })
+        .catch(err => next(err))
+}
+
+playerController.pushSequence = (req, res, next) => {
+    console.log('pushing note + octave to sequence array')
+    console.log(req.body.currentNote)
+    const currentNote = req.body.currentNote
+    const currentOctave = req.body.currentOctave
+    models.Player.updateOne({}, {
+        $push: {
+            sequence: currentNote + currentOctave
+        }
+    })
+        .then(result => {
+            console.log('heres the result', result)
+            return next()
+        })
+        .catch(err => next(err))
+}
+
+playerController.popSequence = (req, res, next) => {
+    console.log('popping note from squence array')
+    models.Player.updateOne({}, {
+        $pop: {
+            sequence: 1
+        }
+    })
+        .then(result => {
             return next()
         })
         .catch(err => next(err))
