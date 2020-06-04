@@ -19,7 +19,9 @@
     "mongoose": "^5.9.17",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "startaudiocontext": "^1.2.1",
+    "tone": "^13.8.25"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

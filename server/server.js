@@ -14,13 +14,15 @@ const PORT = 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.resolve(__dirname, '../dist/')))
 
 app.use("/player", player)
 
-app.use("/", (req, res) => {
-    console.log('get request initialized')
-    res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html'))
-})
+// app.use("/", (req, res) => {
+//     console.log('get request initialized')
+//     res.status(200).
+// })
+
 
 app.use((req, res) => {
     res.sendStatus(404)
