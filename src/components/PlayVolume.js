@@ -1,25 +1,18 @@
-import React, { Component } from 'react'
+
+import React from 'react';
 
 
 
-class PlayVolume extends Component {
-    constructor(props) {
-        super(props)
+function PlayVolume({ playSequence, stopSequence, undo }) {
 
-        this.state = {
-
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.playSequence}>Play Sequence</button>
-                <button onClick={this.props.stopSequence}>Stop</button>
-                <button onClick={this.props.undo}>Undo</button>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <button onClick={playSequence}>Play</button>
+            <button onClick={stopSequence}>Stop</button>
+            <button onClick={undo}>Undo</button>
+        </div>
+    )
 }
 
-export default PlayVolume
+export default PlayVolume;
+

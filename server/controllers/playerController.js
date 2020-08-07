@@ -2,6 +2,16 @@ const models = require('../models/playermodels.js')
 
 const playerController = {}
 
+playerController.getDb = (req, res, next) => {
+    console.log('sending back database')
+    models.Player.find({}).exec()
+        .then(result => {
+            res.locals.getDb = result
+            next()
+        })
+        .catch(err => next(err))
+}
+
 playerController.selectNote = (req, res, next) => {
     console.log('selecting note in', models.Player)
     models.Player.findOne({}).exec()

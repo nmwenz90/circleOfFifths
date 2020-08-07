@@ -1,6 +1,7 @@
 
 const express = require('express')
 const path = require('path')
+// const cors = require('cors')
 
 const player = require('./routes/player.js')
 
@@ -14,14 +15,23 @@ const PORT = 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.resolve(__dirname, '../dist/')))
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+app.use("/", express.static(path.resolve(__dirname, "../dist/")));
+
+
+app.get("/", (req, res) => {
+    console.log("in home endpoint");
+    res.status(200).sendFile(path.join(__dirname, "../dist/index.html"));
+});
+
+
 
 app.use("/player", player)
-
-// app.use("/", (req, res) => {
-//     console.log('get request initialized')
-//     res.status(200).
-// })
 
 
 app.use((req, res) => {

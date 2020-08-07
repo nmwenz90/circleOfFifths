@@ -1,0 +1,31 @@
+body{
+    background-color: #1a2c46;
+}
+
+#zodiac-image {
+    width: 30vw;
+    height: 40vh;
+}
+
+label {
+    color: whitesmoke
+}
+
+button {
+    background: transparent;
+    border: 2px white solid;
+    color: whitesmoke;
+}
+
+h5 {
+    color: whitesmoke
+}
+#octaveControl {
+    display: flex;
+
+}
+
+#upDownButton{
+    display:flex;
+    flex-direction: column;
+}

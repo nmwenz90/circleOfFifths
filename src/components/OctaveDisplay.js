@@ -1,25 +1,35 @@
-import React, { Component } from 'react'
+import React, { useContext, useState } from 'react'
+import { StoreContext } from './Store'
 
-class OctaveDisplay extends Component {
-    constructor(props) {
-        super(props)
+function OctaveDisplay(props) {
+    const [state, setState] = useContext(StoreContext)
 
-        this.state = {
-
-        }
+    function octaveup() {
+        console.log('octave is up')
+        if (state.octaveIndex >= 2) setState(state => ({ ...state, octaveIndex: 0 }));
+        else setState(state => ({ ...state, octaveIndex: state.octaveIndex + 1 }));
     }
 
-    render() {
-        return (
-            <div>
-                <h5>Current Octave: {this.props.currentOctave} </h5>
-                <h5>Current Note: {this.props.currentNote} </h5>
-                <h5>Sequence: {this.props.sequence}</h5>
-                <button className="octaveButton" id="upbutton" onClick={this.props.octaveup}>up</button>
-                <button className="octaveButton" id="downbutton" onClick={this.props.octavedown} >down</button>
+    function octavedown() {
+        console.log('octave is down')
+        if (state.octaveIndex <= 0) setState(state => ({ ...state, octaveIndex: 2 }));
+        else setState(state => ({ ...state, octaveIndex: state.octaveIndex - 1 }));
+    }
+
+    return (
+        <>
+            <div id="octaveControl">
+                <h5>Current Octave: {state.octaves[state.octaveIndex]} </h5>
+                <div id="upDownButton">
+                    <button className="octaveButton" id="upbutton" onClick={octaveup}>up</button>
+                    <button className="octaveButton" id="downbutton" onClick={octavedown} >down</button>
+                </div>
             </div>
-        )
-    }
+            <h5>Current Note: {state.currentNote} </h5>
+            <h5>Sequence: {state.sequence}</h5>
+        </>
+    )
 }
 
-export default OctaveDisplay
+export default OctaveDisplay;
+

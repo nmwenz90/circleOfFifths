@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist/'),
+        path: path.resolve(__dirname, 'dist'),
         publicPath: "/",
         filename: 'index_bundle.js'
     },
@@ -22,11 +22,15 @@ module.exports = {
                 use: {
                     loader: 'html-loader'
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             }
         ]
     },
     devServer: {
-        // host: 'localhost',
+        host: 'localhost',
         port: 8080,
         // match the output path
         contentBase: path.resolve(__dirname, 'dist'),
@@ -55,11 +59,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: './src/index.html'
         })
     ],
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.css', '.html']
     }
 }
 

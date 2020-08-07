@@ -13,7 +13,9 @@
   "dependencies": {
     "axios": "^0.19.2",
     "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
     "express": "^4.17.1",
     "html-loader": "^1.1.0",
     "mongodb": "^3.5.8",
@@ -23,6 +25,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "startaudiocontext": "^1.2.1",
+    "style-loader": "^1.2.1",
     "tone": "^13.8.25"
   },
   "devDependencies": {

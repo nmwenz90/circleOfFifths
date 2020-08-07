@@ -1,31 +1,27 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
+import { StoreContext } from './Store'
 
-class NoteInput extends Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
+function NoteInput({ enteredNoteChange, enteredOctaveChange, handleSubmit, onNoteChange, onOctaveChange }) {
 
-        }
-    }
+    const [state, setState] = useContext(StoreContext)
 
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.props.handleSubmit}>
-                    <label>
-                        Enter Note:
-                        <input value={this.props.enteredNote} onChange={this.props.onNoteChange} type="text" maxLength="2" />
-                    </label>
-                    <label>
-                        Enter Octave:
-                        <input value={this.props.enteredOctave} onChange={this.props.onOctaveChange} type="text" maxLength="1" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Enter Note:
+                    <input value={state.enteredNote} onChange={onNoteChange} type="text" maxLength="2" />
+                </label>
+                <label>
+                    Enter Octave:
+                    <input value={state.enteredOctave} onChange={onOctaveChange} type="text" maxLength="1" />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    )
 }
 
-export default NoteInput
+export default NoteInput;
+
