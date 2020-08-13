@@ -70,9 +70,12 @@ function TransportComponent() {
     }
 
     return (
-        <div>
-            <NoteInput handleSubmit={handleSubmit} onNoteChange={onNoteChange} onOctaveChange={onOctaveChange} />
-            <PlayVolume playSequence={playSequence} stopSequence={stopSequence} undo={undo} />
+        <div className="section">
+
+            <div className="columns">
+                <NoteInput handleSubmit={handleSubmit} onNoteChange={onNoteChange} onOctaveChange={onOctaveChange} />
+                <PlayVolume playSequence={playSequence} stopSequence={stopSequence} undo={undo} />
+            </div>
         </div>
     )
 }

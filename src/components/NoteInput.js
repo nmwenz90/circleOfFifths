@@ -7,17 +7,16 @@ function NoteInput({ enteredNoteChange, enteredOctaveChange, handleSubmit, onNot
     const [state, setState] = useContext(StoreContext)
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="column is-one-fifth">
+            <form className="form" onSubmit={handleSubmit}>
                 <label>
-                    Enter Note:
-                    <input value={state.enteredNote} onChange={onNoteChange} type="text" maxLength="2" />
+                    Enter Note+Octave:
                 </label>
-                <label>
-                    Enter Octave:
-                    <input value={state.enteredOctave} onChange={onOctaveChange} type="text" maxLength="1" />
-                </label>
-                <input type="submit" value="Submit" />
+                <div id="noteInput">
+                    <input className="input is-rounded" value={state.enteredNote} onChange={onNoteChange} type="text" maxLength="2" />
+                    <input className="input is-rounded" value={state.enteredOctave} onChange={onOctaveChange} type="text" maxLength="1" />
+                </div>
+                <input className="button is-rounded is-dark" type="submit" value="Submit" />
             </form>
         </div>
     )

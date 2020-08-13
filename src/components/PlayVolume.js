@@ -6,10 +6,16 @@ import React from 'react';
 function PlayVolume({ playSequence, stopSequence, undo }) {
 
     return (
-        <div>
-            <button onClick={playSequence}>Play</button>
-            <button onClick={stopSequence}>Stop</button>
-            <button onClick={undo}>Undo</button>
+        <div className="column">
+            <button className="button is-rounded is-dark" onClick={playSequence}>
+                <i class="fas fa-play-circle"></i>
+            </button>
+            <button className="button is-rounded is-dark" onClick={stopSequence}>
+                <i class="fas fa-stop-circle"></i>
+            </button>
+            <button className="button is-rounded is-dark" onClick={undo}>
+                <i class="fas fa-undo-alt"></i>
+            </button>
         </div>
     )
 }

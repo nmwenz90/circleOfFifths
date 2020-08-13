@@ -1,5 +1,5 @@
 body{
-    background-color: #1a2c46;
+    background-color: #131207;
 }
 
 #zodiac-image {
@@ -28,4 +28,9 @@ h5 {
 #upDownButton{
     display:flex;
     flex-direction: column;
+}
+
+#noteInput {
+    width: 10;
+    display: inline-flex;
 }

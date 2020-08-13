@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Synth } from 'tone';
 import { StoreContext } from './Store'
 import axios from 'axios';
@@ -7,7 +7,8 @@ import { get } from 'mongoose';
 function ColorWheel() {
 
     const [state, setState] = useContext(StoreContext)
-
+    const [zodiacObj, setZodiacObj] = useState({})
+    // let searchResult = 'temp';
     const dynamicSign = useRef('aries')
 
     const synth = new Synth().toMaster()
@@ -26,39 +27,17 @@ function ColorWheel() {
 
         dynamicSign.current = state.notes[selectedID].sign
         console.log('dynamicsign --> ', dynamicSign)
-        // axios({
-        //     request: 'GET',
-        //     url: `https://ohmanda.com/api/horoscope/aries`,
-        //     headers: {
-        //         'Access-Control-Allow-Origin': '*',
-        //         'Content-Type': 'application/json',
-        //         'Allow': '*',
-        //         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-        //     },
-
-        //     // })
-        //     // axios.get('https://ohmanda.com/api/horoscope/aries')
-        // })
-        // fetch(`http://ohmanda.com/api/horoscope/aries`, { mode: "no-cors" })
-        //     .then((data) => data.json())
-        //     .then(result => console.log('result', result))
-        //     .catch(err => console.log('error -->', err))
-
     }
 
-    // let fetchZodiac = async () => {
-    //     let result = await axios.get('https://json.astrologyapi.com/v1/sun_sign_prediction/daily/:aries')
-    //     console.log(result)
-    // }
     useEffect(() => {
 
-        console.log('dynamic sign in useeffect', dynamicSign.current)
+        console.log('dynamic sign in useeffect', dynamicSign)
         let URL = `https://aztro.sameerkumar.website/?sign=${dynamicSign.current}&day=today`;
         console.log(URL)
         fetch(URL, {
             method: 'POST'
         }).then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => setZodiacObj(data))
             .catch(err => console.log(err))
 
 
@@ -67,14 +46,19 @@ function ColorWheel() {
 
 
     const colorWheelButtons = Object.keys(state.notes).map((key, i) =>
-        <button id={key} key={i} onClick={noteSelector} >{key.toUpperCase()}</button>
+        <button className="button is-rounded" id={key} key={i} onClick={noteSelector} >{key.toUpperCase()}</button>
     )
 
     return (
-        <div>
-            <img id="zodiac-image" src={state.notes[state.currentNote].image} /><br />
-            {colorWheelButtons}
-            <p>placeholder</p>
+        <div className="section">
+            <img className="image is-250x250" src={state.notes[state.currentNote].image} /><br />
+            <div>
+                {colorWheelButtons}
+            </div>
+            <div className="level-left">
+                <div className="content" style={{ color: 'ghostwhite' }} >{zodiacObj.current_date} - </div>
+                <p className=" column is-two-fifths" style={{ color: 'ghostwhite' }}>{zodiacObj.description}</p>
+            </div>
         </div>
     )
 }
