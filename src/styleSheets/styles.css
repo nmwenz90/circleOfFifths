@@ -34,3 +34,81 @@ h5 {
     width: 10;
     display: inline-flex;
 }
+
+.colorWheelButtons{ 
+    color: ghostwhite;
+    border: 3px solid ghostwhite;
+    height: 40px;
+    width: 10px;
+}
+
+/* .circle {
+    /* width: 200px;
+  height: 200px;
+  background: pink;
+  border-radius: 50%; */
+  /* } */ 
+
+  .circle-item{
+      position: absolute;
+      left: 47vw;
+      top: 62vh;
+  }
+
+
+  .circle .circle-item:nth-child(1) {
+    transform: rotate(0deg) translate(250px);
+  }
+  .circle .circle-item:nth-child(2) {
+    transform: rotate(30deg) translate(15.625em) rotate(-30deg);
+  }
+  .circle .circle-item:nth-child(3) {
+    transform: rotate(60deg) translate(15.625em) rotate(-60deg);
+  }
+  .circle .circle-item:nth-child(4) {
+    transform: rotate(90deg) translate(15.625em) rotate(-90deg);
+  }
+  .circle .circle-item:nth-child(5) {
+    transform: rotate(120deg) translate(15.625em) rotate(-120deg);
+  }
+  .circle .circle-item:nth-child(6) {
+    transform: rotate(150deg) translate(15.625em) rotate(-150deg);
+  }
+  .circle .circle-item:nth-child(7) {
+    transform: rotate(180deg) translate(15.625em) rotate(-180deg);
+  }
+  .circle .circle-item:nth-child(8) {
+    transform: rotate(210deg) translate(15.625em) rotate(-210deg);
+  }
+  .circle .circle-item:nth-child(9) {
+    transform: rotate(240deg) translate(15.625em) rotate(-240deg);
+  }
+  .circle .circle-item:nth-child(10) {
+    transform: rotate(270deg) translate(15.625em) rotate(-270deg);
+  }
+  .circle .circle-item:nth-child(11) {
+    transform: rotate(300deg) translate(15.625em) rotate(-300deg);
+  }
+  .circle .circle-item:nth-child(12) {
+    transform: rotate(330deg) translate(15.625em) rotate(-330deg);
+  }
+
+/* .circle-items {
+
+} */
+
+.bodyContainer{
+    background-color: rgb(39, 33, 75);
+}
+
+#header h2 {
+  color: ghostwhite;
+}
+
+#header {
+  border-bottom: solid 2px ghostwhite;
+}
+
+#colorWheelZodiac {
+  background-color: gray;
+}

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayVolume should render correctly in "debug" mode 1`] = `
+<div
+  className="columns"
+>
+  <button
+    className="button is-rounded is-dark"
+    id="playButton"
+  >
+    <i
+      className="fas fa-play-circle"
+    />
+  </button>
+  <button
+    className="button is-rounded is-dark"
+  >
+    <i
+      class="fas fa-stop-circle"
+    />
+  </button>
+  <button
+    className="button is-rounded is-dark"
+  >
+    <i
+      class="fas fa-undo-alt"
+    />
+  </button>
+</div>
+`;

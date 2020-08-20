@@ -17,20 +17,20 @@ function OctaveDisplay(props) {
     }
 
     return (
-        <div className="section">
+        <div>
             <div className="columns" id="octaveControl">
-                <div className="column is-2"  >
+                <div className="column is-offset-7"  >
                     <h5>Current Octave: {state.octaves[state.octaveIndex]} </h5>
                     <h5>Current Note: {state.currentNote} </h5>
                     <h5>Sequence: {state.sequence}</h5>
                 </div>
-                <div className="column is-1"  >
+                <div className="column is-1 is-offset-6"  >
                     <div id="upDownButton">
                         <button className="octaveButton button is-rounded is-dark" id="upbutton" onClick={octaveup}>
-                            <i class="fas fa-arrow-alt-circle-up"></i>
+                            <i className="fas fa-arrow-alt-circle-up"></i>
                         </button>
                         <button className="octaveButton button is-rounded is-dark" id="downbutton" onClick={octavedown} >
-                            <i class="fas fa-arrow-alt-circle-down"></i>
+                            <i className="fas fa-arrow-alt-circle-down"></i>
                         </button>
                     </div>
 
