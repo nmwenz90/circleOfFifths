@@ -19,7 +19,7 @@ function OctaveDisplay(props) {
     return (
         <div>
             <div className="columns" id="octaveControl">
-                <div className="column is-offset-7"  >
+                <div className="column is-offset-10"  >
                     <h5>Current Octave: {state.octaves[state.octaveIndex]} </h5>
                     <h5>Current Note: {state.currentNote} </h5>
                     <h5>Sequence: {state.sequence}</h5>
@@ -36,7 +36,6 @@ function OctaveDisplay(props) {
 
                 </div>
             </div>
-
         </div>
     )
 }

@@ -29,22 +29,10 @@ function ColorWheel() {
         console.log('dynamicsign --> ', dynamicSign)
     }
 
-    // let URL = `https://aztro.sameerkumar.website/?sign=${dynamicSign.current}&day=today`;
-    // async function fetchReq() {
-    //     try {
-    //         let data = await axios.post(URL)
-    //         console.log(data)
-    //         setZodiacObj(data)
-    //     } catch (err) {
-    //         return { err }
-    //     }
-    // }
-
     useEffect(() => {
         // fetchReq()
         console.log('dynamic sign in useeffect', dynamicSign)
         let URL = `https://aztro.sameerkumar.website/?sign=${dynamicSign.current}&day=today`;
-        // console.log(URL)
         fetch(URL, {
             method: 'POST'
         }).then(response => response.json())
@@ -62,14 +50,14 @@ function ColorWheel() {
 
     return (
         <div className="section" >
-            <div className="column section is-three-fifths is-offset-one-fifth" >
-                <img className="image is-250x250" src={state.notes[state.currentNote].image} /><br />
+            <div className="column section is-two-fifths is-offset-3" id="imageSection" >
+                <img className="image is-128x128px" src={state.notes[state.currentNote].image} /><br />
             </div>
             <div className="circle">
                 {colorWheelButtons}
             </div>
             <div className="columns">
-                <div className="column content is-one-fifth is-offset-one-fifth" style={{ color: 'ghostwhite' }} >{zodiacObj.current_date} - </div>
+                <div className="column content is-one-fifth is-offset-one-fifth" id="date" style={{ color: 'ghostwhite' }} >{zodiacObj.current_date}</div>
                 <p className=" is-two-fifths column " style={{ color: 'ghostwhite' }}>{zodiacObj.description}</p>
             </div>
         </div>

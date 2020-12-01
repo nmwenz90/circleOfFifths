@@ -15,10 +15,10 @@ const App = (props) => {
             <div class="column is-three-fifths is-offset-one-fifth bodyContainer">
                 <Header />
                 <ColorWheel />
-                <div className="section ">
+                <div className="section octaveDisplay">
                     <div className="columns">
                         <OctaveDisplay className="column is-offset-4" />
-                        <TransportComponent className="column is-4" />
+                        <TransportComponent className="column is-4" id="transporttComponent" />
                     </div>
                 </div>
                 <Footer />
